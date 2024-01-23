@@ -5,9 +5,31 @@ import styles from '@/app/ui/home.module.css';
 import { lusitana } from './ui/fonts';
 import Image from 'next/image';
 
+const testNav = [
+  {
+    label: 'Dashboard',
+    href: '/dashboard',
+  },
+  {
+    label: 'Test client component',
+    href: '/test/client-component',
+  },
+  {
+    label: 'Test fetch',
+    href: '/test/fetch',
+  },
+];
+
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6">
+      {testNav.map((nav) => (
+        <li key={nav.href}>
+          <Link href={nav.href} className="text-blue-500 hover:underline">
+            {nav.label}
+          </Link>
+        </li>
+      ))}
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
       </div>
